@@ -21,8 +21,14 @@ screen persistent_object():
 image implore = Movie(channel="movie_dp", play="images/implore.webm")
 image loredance = Movie(channel="movie_dp", play="images/loredance.webm")
 
-define e = Character("Lacey", color="#40E0D0")
-define m = Character ("Sean", color="#ff8d33")
+# define a character, attach a callback for speaking sounds and lipsync
+# syntax: define <whatever> = Character("<Character Name>", callback=make_text_sounds("<sounds folder>", "<animation toggle>"))
+define c = Character("Chili", callback=make_text_sounds("audio/chili/", "chili_talking"))
+
+# can also be used without the animation toggle if you just want the sounds
+define e = Character("Lacey", color="#40E0D0", callback=make_text_sounds("audio/lacey/"))
+define m = Character ("Sean", color="#ff8d33", callback=make_text_sounds("audio/sean/"))
+
 
 transform stopTalking:
     zoom 1
@@ -43,10 +49,16 @@ scene bg thefort
 with fade
 play music roadtrip
 show screen persistent_object
-"Everyone glamorizes small town living."
-"They talk about how quiet it is, and the stars at night, and how everybody knows their neighbors."
-"They don't talk about how you gotta drive forty-five minutes just to get decent produce, though."
-"...Or how there's meth heads living at the end of just about every holler."
+
+## TEMP! Added chili talking for example -------------------------------------------------
+show Chili at idle_bob with easeinleft: ## animation example
+    xpos 0.6 ypos 0.2
+c "Everyone glamorizes small town living."
+c "They talk about how quiet it is, and the stars at night, and how everybody knows their neighbors."
+c "They don't talk about how you gotta drive forty-five minutes just to get decent produce, though."
+c "...Or how there's meth heads living at the end of just about every holler."
+## --------------------------------------------------------------------------------------
+
 scene bg dollyg
 with fade
 "It's even worse now."
@@ -102,23 +114,25 @@ with easeinleft
 show sean dress bored at stopTalking
 show lacey work surprised
 with easeinright
-"???" "...Sean? Is that you?"
+
+# TEMP speaking example -------------------------------------------------
+e "...Sean? Is that you?" 
 "I look up, a bit surprised to hear my name. For a moment, I don't recognize the person greeting me."
 "It hits me like a truck a second later."
 show lacey work surprised at stopTalking
 show sean dress surprised at startTalking
-"Sean" "Lacey? Holy shit. Wow! Uh, how have you been?"
+m "Lacey? Holy shit. Wow! Uh, how have you been?"
 "Lacey was my best friend growing up. She looks more or less the same as when I last saw her, but she's definitely gained a little bit of weight."
 show sean dress surprised at stopTalking
 show lacey work smile at startTalking
-"Lacey" "Stayin' alive. You know how it is."
+e "Stayin' alive. You know how it is."
 show lacey work smile at stopTalking
 "There's a moment where neither of us say anything. We just kinda stare at each other like morons for a second. At least I feel like a moron."
 show lacey work talk at startTalking
-"Lacey" "It's so surreal seeing you again, Sean. How long has it even been? Like seven years?"
+e "It's so surreal seeing you again, Sean. How long has it even been? Like seven years?"
 show lacey work talk at stopTalking
 show sean dress wince at startTalking
-"Sean" "Something like that. I uh, moved up North, or at least further up the river."
+m "Something like that. I uh, moved up North, or at least further up the river."
 show sean dress wince at stopTalking
 "She nods, and I think I detect a little sadness in her expression."
 show lacey work smile at startTalking
@@ -126,7 +140,9 @@ show lacey work smile at startTalking
 show lacey work smile at stopTalking
 "She laughs and I get a funny feeling in my chest. I haven't heard that laugh in so long."
 show sean dress joke at startTalking
-"Sean" "Well, I hope I'm put together. I don't think the Sean factory is still in business."
+m "Well, I hope I'm put together. I don't think the Sean factory is still in business."
+# -------------------------------------------------------------------------------
+
 show sean dress joke at stopTalking
 show lacey work laugh at startTalking
 "Lacey" "Very funny. I mean it, though. You always said you'd get outta here and make something of yourself. And look at you now. I never saw you in button-up shirts before."
