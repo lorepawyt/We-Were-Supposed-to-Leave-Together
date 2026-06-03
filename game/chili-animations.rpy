@@ -1,12 +1,7 @@
 # You can define characters, animations and transforms in separate files!
-
-# Any character can use this animation even if it's in a separate file!
-transform idle_bob:
-    yoffset 0
-    ease 1 yoffset 15
-    ease 1 yoffset 0
-    repeat
-
+# Also: this file is safe to delete! 
+# Just make sure you delte the Chili stuff from script.rpy too
+define chili_talking = False
 
 # The magic sauce; switches character image based on the condition of the variable 
 image Chili = ConditionSwitch(

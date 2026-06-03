@@ -21,9 +21,11 @@ screen persistent_object():
 image implore = Movie(channel="movie_dp", play="images/implore.webm")
 image loredance = Movie(channel="movie_dp", play="images/loredance.webm")
 
-# define a character, attach a callback for speaking sounds and lipsync
+# delete this! ------------------------------------------------------------------------------------------------
+# define a character, attach a callback for speaking sounds and lipsync 
 # syntax: define <whatever> = Character("<Character Name>", callback=make_text_sounds("<sounds folder>", "<animation toggle>"))
 define c = Character("Chili", callback=make_text_sounds("audio/chili/", "chili_talking"))
+# ------------------------------------------------------------------------------------------------------------
 
 # can also be used without the animation toggle if you just want the sounds
 define e = Character("Lacey", color="#40E0D0", callback=make_text_sounds("audio/lacey/"))
@@ -50,14 +52,14 @@ with fade
 play music roadtrip
 show screen persistent_object
 
-## TEMP! Added chili talking for example -------------------------------------------------
+## TEMP! Added chili talking for example, delete the `c` at the start of the line to make it go away. -----
 show Chili at idle_bob with easeinleft: ## animation example
     xpos 0.6 ypos 0.2
 c "Everyone glamorizes small town living."
 c "They talk about how quiet it is, and the stars at night, and how everybody knows their neighbors."
 c "They don't talk about how you gotta drive forty-five minutes just to get decent produce, though."
 c "...Or how there's meth heads living at the end of just about every holler."
-## --------------------------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------------
 
 scene bg dollyg
 with fade
@@ -190,7 +192,11 @@ show lacey work smoking smile at stopTalking
 show sean dress wince
 with easeinleft
 "Sean" "They keep getting older, man. It's fucking me up. Apart from that, I'd say they're...I dunno, typical?"
-show sean dress wince at stopTalking
+
+# idle animation test!! ----------------------------------
+show sean dress wince idle at stopTalking
+# --------------------------------------------------------
+
 show lacey work smoking talk at startTalking
 "Lacey" "Well, I guess that's good. My parents are really into like, food truck stuff. Food trucking?"
 show lacey work smoking talk at stopTalking

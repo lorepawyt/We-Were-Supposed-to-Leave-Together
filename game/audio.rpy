@@ -27,7 +27,7 @@ init python:
 #
 # Usage: define <asd> = Character("<CharName>", callback=make_text_sounds("<sounds_folder>", "<animation_toggle>"))
 #
-# The animation_toggle variable is optional; 
+# OPTIONAL: You can define talking/ non-taking variants for your images.
 # to animate character talking, just set up a ConditionSwitch that checks that variable you pass in here.
     # image Chili = ConditionSwitch(
     #     "chili_talking == True", "Chili speak",
